@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: transparent; /* Transparent background */
+            font-family: 'Garamond', 'Times New Roman', serif;
+        }
+
+        /* The dark fading band */
+        #banner {
+            position: absolute;
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(
+                to bottom, 
+                rgba(0,0,0,0) 0%, 
+                rgba(0,0,0,0.95) 20%, 
+                rgba(0,0,0,0.95) 80%, 
+                rgba(0,0,0,0) 100%
+            );
+            opacity: 0;
+            animation: bannerFade 4s ease-out forwards;
+        }
+
+        /* The Text */
+        h1 {
+            font-size: 6rem;
+            color: #e8dcb5;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            text-shadow: 0 0 15px rgba(219, 172, 59, 0.6);
+            margin: 0;
+            opacity: 0;
+            z-index: 2;
+            animation: textFade 4.5s ease-out forwards;
+        }
+
+        @keyframes bannerFade {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes textFade {
+            0% { opacity: 0; transform: scale(1.15) translateY(10px); filter: blur(5px); }
+            15% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0px); }
+            80% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.95); }
+        }
+    </style>
+</head>
+<body>
+    <div id="banner"></div>
+    <h1>GIT PUSHED</h1>
+    
+    <audio id="audio" src="victory.mp3" autoplay></audio>
+</body>
+</html>
