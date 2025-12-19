@@ -3,7 +3,7 @@
 
 GitSouls is a PowerShell integration that turns every `git push` into a Dark Souls / Elden Ring victory event. When your push is successful, a native overlay appears on your screen with the iconic "Victory" sound and aesthetic.
 
-![GitSouls Preview](https://drive.google.com/file/d/1Sm13yO5VEfhGrV2312ad3OUxDnXDXBih/view?usp=sharing)
+![GitSouls Preview](https://drive.google.com/uc?export=view&id=1Sm13yO5VEfhGrV2312ad3OUxDnXDXBih)
 
 
 ## ✨ Features
