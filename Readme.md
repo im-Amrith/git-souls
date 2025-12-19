@@ -28,3 +28,43 @@ Move the **entire** `GitSouls` folder into your **Documents** folder.
 1. Open PowerShell and run:
    ```powershell
    code $PROFILE
+   ```
+   (If it asks to create a file, select Yes).
+2. A text file will open in VS Code. Paste the following code at the bottom of that file:
+   ```powershell
+   function eldenpush {
+    # 1. Run git push safely without crashing PowerShell
+    cmd /c "git push $args"
+
+    # 2. If successful (Exit Code 0)
+    if ($LASTEXITCODE -eq 0) {
+        # Try to find the folder in Documents (Works for Local AND OneDrive)
+        $path1 = "$([Environment]::GetFolderPath('MyDocuments'))\GitSouls\GitSouls.exe"
+        $path2 = "$HOME\Documents\GitSouls\GitSouls.exe"
+
+        if (Test-Path $path1) { Start-Process $path1 }
+        elseif (Test-Path $path2) { Start-Process $path2 }
+        else {
+            Write-Warning "VICTORY MISSED: Could not find GitSouls."
+            Write-Warning "Please move the 'GitSouls' folder to your Documents folder."
+        }
+    }
+   }
+   ```
+   3. Save the file (Ctrl+S) and close it.
+   4. Restart your terminal (close and reopen it).
+
+🎮 Usage
+Instead of typing git push, use:
+
+```powershell
+   eldenpush
+```
+Or pass arguments just like normal git:
+
+```powershell
+   eldenpush origin main
+```
+```PowerShell
+   eldenpush --force
+```
